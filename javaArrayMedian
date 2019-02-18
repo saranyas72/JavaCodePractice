@@ -1,0 +1,42 @@
+package codePractice;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+
+public class javaArrayMedian {
+
+	public static void main(String[] args) { 
+		int[] arr1 = {1, 2 };
+		int[] arr2 = {3, 4 };
+    System.out.println(findMedianSortedArrays(arr1, arr2));
+	}
+  public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+    ArrayList<Integer> myArray = new ArrayList<>();
+        if (nums1.length > 0) {
+            for (int elements : nums1)
+                myArray.add(elements);
+        }
+        
+        if (nums2.length > 0) {
+            for (int elements : nums2)
+                myArray.add(elements);
+        }
+        
+        Collections.sort(myArray);
+        System.out.println(myArray.toString());
+        int arraySize = myArray.size();
+        if (arraySize < 1 ) {     
+            return 0;
+        } else {
+            // Find Median
+            if (arraySize % 2 == 0) {
+                int midElement = (arraySize) / 2;
+                return ((myArray.get(midElement-1) + myArray.get(midElement)) / 2.0) ;
+            }
+            else {
+                int midElement = (arraySize) / 2;
+                return myArray.get(midElement);
+            }
+        }
+    }
